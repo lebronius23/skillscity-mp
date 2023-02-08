@@ -1,4 +1,5 @@
-import Link from "next/link";
+import Footer from "@/components/shared/footer";
+import Header from "@/components/shared/header";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
@@ -15,22 +16,17 @@ const handleClick=() => {
   //navigate to the books page
 }
 
-  return (
-    <div className="w-full py-10 bg-blue-100">
-      Hello!
-    
-      <button
+return(
+  <div className="w-full">
+    <Header name="Home"/>
+    <button
         className="bg-blue-500 px-2 py-1 rounded"
         onClick={handleClick}
         >
           Click me!!!
         </button>
 
-      <div>
-        <Link href="/books">
-        Go to books page
-        </Link>
-      </div>
-    </div> 
-  )
+      <Footer href="/books" title="Books Page" />
+  </div>
+);
 }
