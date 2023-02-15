@@ -11,10 +11,13 @@ export default function BookItem({ book }) {
 
     return (
         <div className="border rounded-lg p-4">
-            <img src={book.img_url} className="rounded-lg h-64"/>
+            
             <Link href={`/single-book/${book.id}`} className="text-xl font-medium">
-                {book.title}
+                <img src={book.img_url} className="rounded-lg h-64"/>
             </Link>
+            <p>
+            {book.title}
+            </p>
             <p className="text-gray-700">{book.author}</p>
             <button
                 onClick={handleLike}
