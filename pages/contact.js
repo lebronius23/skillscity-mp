@@ -1,14 +1,37 @@
+import ListOfMessages from "@/components/contact/list-of-messages";
 import Input from "@/components/forms/input";
 import Content from "@/components/shared/content";
 import Footer from "@/components/shared/footer";
 import Header from "@/components/shared/header";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Contact() {
     const [name, setName] =useState("");
     const [email, setEmail] =useState("");
     const [message, setMessage] = useState("");
     const [showSuccess, setShowSuccess] = useState(false);
+    const [messages, setMessages] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        getMessages();
+    }, []);
+
+    const getMessages = async () => {
+        setIsLoading(true);
+        const response = await fetch(`/api/contact-messages`);
+        const data = await response.json();
+
+        const { messages } = data;
+
+        console.log(messages);
+
+        setMessages(messages);
+        setTimeout(() => {
+            setIsLoading(false);
+
+        }, 3000);
+    }
 
     const handleChangeMessage = (event) => {
         const message = event.target.value;
@@ -23,6 +46,7 @@ export default function Contact() {
         setEmail("");
         setMessage("");
         setShowSuccess(true);
+        getMessages();
     }
 
     return (
@@ -34,8 +58,7 @@ export default function Contact() {
                     <Input
                         placeholder="Name"
                         value={name}
-                        onChange={(value) => setName(value)}
-                        disabled={true}
+                        onChange={(value) => setName(value)}                      
                     />
                     <Input
                         placeholder="Email"
@@ -65,6 +88,8 @@ export default function Contact() {
                         null
                     }
                 </form>
+
+                <ListOfMessages isLoading={isLoading} messages={messages} />
             </Content>
 
             <Footer title="Home" href="/" />
