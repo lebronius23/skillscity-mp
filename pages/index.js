@@ -35,7 +35,7 @@ return(
 
         <Topics />
 
-        <div>
+        <div className="hidden md:block">
           <button
             className="bg-blue-500 px-2 py-1 rounded"
             onClick={handleClick}
