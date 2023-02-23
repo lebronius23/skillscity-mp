@@ -29,7 +29,6 @@ export default function Contact() {
         setMessages(messages);
         setTimeout(() => {
             setIsLoading(false);
-
         }, 3000);
     }
 
@@ -39,8 +38,21 @@ export default function Contact() {
     }
 
     const handleSubmit = async (event) => {
-        const response= await fetch(`/api/contact?name=${name}&email=${email}&message=${message}`);
-        const data = await response.json();
+        let payload ={
+            name: name,
+            email: email,
+            message: message
+        };
+
+    const response = await fetch(`/api/contact`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+    });
+    
+    const data = await response.json();
 
         setName("");
         setEmail("");

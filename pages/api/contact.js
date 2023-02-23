@@ -1,7 +1,7 @@
 import sql from "@/utils/postgres";
 
 export default async function handle(req, res) {
-    const { name, email, message } = req.query;
+    const { name, email, message } = req.body;
 
     if (name === undefined) {
         res.status(400).json({ message: "Name is required"});
@@ -25,5 +25,5 @@ export default async function handle(req, res) {
             (${name}, ${message}, ${email})
     `;
 
-    res.json({ message: "Success"})
+    res.json({ message: "Success"});
 }
