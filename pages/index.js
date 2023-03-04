@@ -52,7 +52,8 @@ return(
         title="Books Page" 
         buttons={[
           { title: "Locations", href: "/locations" },
-          { title: "Books", href: "/books" }
+          { title: "Books", href: "/books" },
+          { title: "Contact", href: "/contact" }
         ]}  
         
       />
