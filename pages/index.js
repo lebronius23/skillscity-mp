@@ -47,7 +47,15 @@ return(
     </Content>
     
 
-      <Footer href="/books" title="Books Page" />
+      <Footer 
+        href="/books" 
+        title="Books Page" 
+        buttons={[
+          { title: "Locations", href: "/locations" },
+          { title: "Books", href: "/books" }
+        ]}  
+        
+      />
   </div>
 );
 }
