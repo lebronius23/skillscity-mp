@@ -10,7 +10,6 @@ export default function FooterButton({ title, href }) {
             href={href}
         >
             {title}
-        </Link>
-            
+        </Link>           
     )
 }
