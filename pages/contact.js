@@ -59,6 +59,9 @@ export default function Contact() {
         setMessage("");
         setShowSuccess(true);
         getMessages();
+        setTimeout(() => {
+            setShowSuccess(false);
+        }, 3000);
     }
 
     return (
