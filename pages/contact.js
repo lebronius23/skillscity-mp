@@ -82,7 +82,7 @@ export default function Contact() {
                     />
                     <textarea
                         placeholder="Message" 
-                        className="bg-gray-200 py-3 px-6 border w-feull rounded"
+                        className="bg-gray-200 py-3 px-6 border w-full rounded"
                         value={message}
                         onChange={handleChangeMessage}
                     />
