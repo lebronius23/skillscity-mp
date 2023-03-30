@@ -4,6 +4,7 @@ import Content from "@/components/shared/content";
 import LocationsTable from "@/components/locations/locations-table";
 
 export default function LocationsTablePage() {
+    
     return (
         <div className="w-full">
             <Header name="Locations Table"/>
